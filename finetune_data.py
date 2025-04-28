@@ -185,7 +185,8 @@ def train_binary(args, train_df, eval_df, test_df, seed, model_configs):
     model_args.max_seq_length = args.max_seq_length
     model_args.train_batch_size = args.train_batch_size
     model_args.save_steps = -1
-    model_args.use_multiprocessing = False
+    model_args.use_multiprocessing = False,
+    model_args.use_multiprocessing_for_evaluation=False
     # model_args.save_model_every_epoch = False
     if "do_lower_case" in model_configs:
         model_args.do_lower_case = model_configs["do_lower_case"]
@@ -238,7 +239,8 @@ def train_multilabel(args, train_df, eval_df, test_df, seed, model_configs):
     model_args.max_seq_length = args.max_seq_length
     model_args.train_batch_size = args.train_batch_size
     model_args.save_steps = -1
-    model_args.use_multiprocessing = False
+    model_args.use_multiprocessing = False,
+    model_args.use_multiprocessing_for_evaluation=False
     # model_args.save_model_every_epoch = False
     if "do_lower_case" in model_configs:
         model_args.do_lower_case = model_configs["do_lower_case"]
@@ -307,7 +309,8 @@ def train_multiclass(args, train_df, eval_df, test_df, seed, model_configs):
     model_args.max_seq_length = args.max_seq_length
     model_args.train_batch_size = args.train_batch_size
     model_args.save_steps = -1
-    model_args.use_multiprocessing = False
+    model_args.use_multiprocessing = False,
+    model_args.use_multiprocessing_for_evaluation=False
     # model_args.save_model_every_epoch = False
     if "do_lower_case" in model_configs:
         model_args.do_lower_case = model_configs["do_lower_case"]
@@ -378,7 +381,8 @@ def train_ner(args, train_df, eval_df, test_df, seed, model_configs):
     model_args.max_seq_length = args.max_seq_length
     model_args.train_batch_size = args.train_batch_size
     model_args.save_steps = -1
-    model_args.use_multiprocessing = False
+    model_args.use_multiprocessing = False,
+    model_args.use_multiprocessing_for_evaluation=False
     # model_args.save_model_every_epoch = False
     if "do_lower_case" in model_configs:
         model_args.do_lower_case = model_configs["do_lower_case"]
