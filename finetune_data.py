@@ -179,14 +179,15 @@ def train_binary(args, train_df, eval_df, test_df, seed, model_configs):
     model_args = ClassificationArgs()
     model_args.manual_seed = seed
     model_args.best_model_dir = os.path.join(args.output_dir, "best_model", "")
-    model_args.output_dir =  args.output_dir
+    model_args.output_dir = args.output_dir
     model_args.num_train_epochs = args.epochs_per_seed
     model_args.fp16 = False
     model_args.max_seq_length = args.max_seq_length
     model_args.train_batch_size = args.train_batch_size
     model_args.save_steps = -1
-    model_args.use_multiprocessing = False,
-    model_args.use_multiprocessing_for_evaluation=False
+    model_args.use_multiprocessing = True,
+    model_args.multiprocessing_chunksize = 5,
+    model_args.use_multiprocessing_for_evaluation = True
     # model_args.save_model_every_epoch = False
     if "do_lower_case" in model_configs:
         model_args.do_lower_case = model_configs["do_lower_case"]
@@ -240,7 +241,7 @@ def train_multilabel(args, train_df, eval_df, test_df, seed, model_configs):
     model_args.train_batch_size = args.train_batch_size
     model_args.save_steps = -1
     model_args.use_multiprocessing = False,
-    model_args.use_multiprocessing_for_evaluation=False
+    model_args.use_multiprocessing_for_evaluation = False
     # model_args.save_model_every_epoch = False
     if "do_lower_case" in model_configs:
         model_args.do_lower_case = model_configs["do_lower_case"]
@@ -310,7 +311,7 @@ def train_multiclass(args, train_df, eval_df, test_df, seed, model_configs):
     model_args.train_batch_size = args.train_batch_size
     model_args.save_steps = -1
     model_args.use_multiprocessing = False,
-    model_args.use_multiprocessing_for_evaluation=False
+    model_args.use_multiprocessing_for_evaluation = False
     # model_args.save_model_every_epoch = False
     if "do_lower_case" in model_configs:
         model_args.do_lower_case = model_configs["do_lower_case"]
@@ -382,7 +383,7 @@ def train_ner(args, train_df, eval_df, test_df, seed, model_configs):
     model_args.train_batch_size = args.train_batch_size
     model_args.save_steps = -1
     model_args.use_multiprocessing = False,
-    model_args.use_multiprocessing_for_evaluation=False
+    model_args.use_multiprocessing_for_evaluation = False
     # model_args.save_model_every_epoch = False
     if "do_lower_case" in model_configs:
         model_args.do_lower_case = model_configs["do_lower_case"]
